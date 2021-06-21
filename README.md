@@ -5,7 +5,7 @@ a simple ready to use boilerplate using nestjs containing the following features
 1. configuration module ready to use
 2. typeorm preconfigured to use (postgres), you can just change the config and use any db
 3. authentication using passport-jwt
-4. swagger documentation
+4. graphql ready to use
 5. global validation for all routes
 
 ## Usage
