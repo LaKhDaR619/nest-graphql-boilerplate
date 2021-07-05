@@ -1,0 +1,18 @@
+input RegisterDto {
+  email: String!
+  password: String!
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+type AuthResponse {
+  access_token: String!
+}
+
+type Mutation {
+  register(registerDto: RegisterDto!): User!
+  login(loginDto: LoginDto!): AuthResponse!
+}
