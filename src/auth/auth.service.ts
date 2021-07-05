@@ -59,10 +59,6 @@ export class AuthService {
 
     if (!fetchedUser) throw new UnauthorizedException();
 
-    return {
-      data: {
-        user: fetchedUser,
-      },
-    };
+    return fetchedUser;
   }
 }

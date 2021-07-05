@@ -26,6 +26,12 @@ export interface AuthResponse {
     access_token: string;
 }
 
+export interface IQuery {
+    currentUser(): User | Promise<User>;
+    users(): User[] | Promise<User[]>;
+    user(id: string): User | Promise<User>;
+}
+
 export interface IMutation {
     register(registerDto: RegisterDto): User | Promise<User>;
     login(loginDto: LoginDto): AuthResponse | Promise<AuthResponse>;
@@ -36,9 +42,4 @@ export interface IMutation {
 export interface User {
     id: string;
     email: string;
-}
-
-export interface IQuery {
-    users(): User[] | Promise<User[]>;
-    user(id: string): User | Promise<User>;
 }

@@ -12,6 +12,10 @@ type AuthResponse {
   access_token: String!
 }
 
+type Query {
+  currentUser: User!
+}
+
 type Mutation {
   register(registerDto: RegisterDto!): User!
   login(loginDto: LoginDto!): AuthResponse!
