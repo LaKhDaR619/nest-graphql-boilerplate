@@ -10,17 +10,17 @@ import { UsersService } from './users.service';
 export class UsersResolver {
   constructor(private usersService: UsersService) {}
 
-  @Query(() => [User])
-  async findAll(): Promise<User[]> {
-    return this.usersService.findAll();
+  @Query()
+  async users(): Promise<User[]> {
+    return this.usersService.users();
   }
 
-  @Query(() => User)
-  async findOne(@Args('id', new ParseUUIDPipe()) id: string): Promise<User> {
-    return this.usersService.findOne(id);
+  @Query()
+  async user(@Args('id', new ParseUUIDPipe()) id: string): Promise<User> {
+    return this.usersService.user(id);
   }
 
-  @Mutation(() => User)
+  @Mutation()
   async update(
     @Args('id', new ParseUUIDPipe()) id: string,
     @Args('updateUserDto') updateUserDto: UpdateUserDto,
@@ -28,7 +28,7 @@ export class UsersResolver {
     return this.usersService.update(id, updateUserDto);
   }
 
-  @Mutation(() => User)
+  @Mutation()
   async remove(@Args('id', new ParseUUIDPipe()) id: string): Promise<User> {
     return this.usersService.remove(id);
   }

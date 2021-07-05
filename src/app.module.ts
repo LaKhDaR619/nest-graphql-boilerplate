@@ -14,7 +14,10 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
     ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync(dbConfig),
     GraphQLModule.forRoot({
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      typePaths: ['./**/*.graphql'],
+      definitions: {
+        path: join(process.cwd(), 'src/graphql.ts'),
+      },
       context: ({ req }) => ({ request: req }),
       formatError: (error: GraphQLError) => {
         const graphQLFormattedError: GraphQLFormattedError = {

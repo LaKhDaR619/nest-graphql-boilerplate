@@ -10,7 +10,7 @@ export class UsersService {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) {}
 
-  async findAll(): Promise<User[]> {
+  async users(): Promise<User[]> {
     const fetchedUsers = await this.userRepository.find({
       select: ['id', 'email', 'createdAt'],
     });
@@ -18,7 +18,7 @@ export class UsersService {
     return fetchedUsers;
   }
 
-  async findOne(id: string): Promise<User> {
+  async user(id: string): Promise<User> {
     const fetchedUser = await this.userRepository.findOne({
       where: {
         id,
